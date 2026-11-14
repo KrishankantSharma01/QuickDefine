@@ -1,0 +1,259 @@
+/* ─── QuickDefine Popup Styles ─── */
+
+#qd-popup {
+  position: absolute;
+  z-index: 2147483647;
+  display: none;
+  width: 360px;
+  max-height: 420px;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18), 0 2px 8px rgba(0, 0, 0, 0.08);
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+  color: #222;
+  line-height: 1.5;
+  overflow: hidden;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  opacity: 0;
+  transform: translateY(4px);
+}
+
+#qd-popup.qd-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Header ─── */
+#qd-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 14px 8px;
+  border-bottom: 1px solid #f0f0f0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  border-radius: 12px 12px 0 0;
+}
+
+#qd-word {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  text-transform: capitalize;
+}
+
+#qd-phonetic {
+  font-size: 13px;
+  font-weight: 400;
+  opacity: 0.85;
+  font-style: italic;
+}
+
+#qd-audio-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 0;
+  margin-left: auto;
+  transition: background 0.2s;
+  color: #fff;
+}
+
+#qd-audio-btn:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+#qd-close {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  padding: 0;
+  margin-left: 4px;
+  transition: background 0.2s;
+  line-height: 1;
+}
+
+#qd-close:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* ─── Body ─── */
+#qd-body {
+  padding: 12px 14px;
+  overflow-y: auto;
+  max-height: 320px;
+}
+
+/* Scrollbar */
+#qd-body::-webkit-scrollbar {
+  width: 5px;
+}
+#qd-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+#qd-body::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
+}
+
+/* Loading spinner */
+#qd-loading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 0;
+  justify-content: center;
+  color: #888;
+  font-size: 13px;
+}
+
+.qd-spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #e0e0e0;
+  border-top-color: #667eea;
+  border-radius: 50%;
+  animation: qd-spin 0.7s linear infinite;
+}
+
+@keyframes qd-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Part of speech */
+.qd-pos {
+  font-size: 13px;
+  font-weight: 700;
+  color: #667eea;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-top: 10px;
+  margin-bottom: 4px;
+  padding-bottom: 3px;
+  border-bottom: 2px solid #f0f0f0;
+}
+.qd-pos:first-child {
+  margin-top: 0;
+}
+
+/* Definition */
+.qd-def {
+  margin: 5px 0 2px 0;
+  font-size: 13.5px;
+  color: #333;
+}
+
+.qd-num {
+  font-weight: 600;
+  color: #764ba2;
+  margin-right: 3px;
+}
+
+/* Example */
+.qd-example {
+  font-style: italic;
+  color: #777;
+  font-size: 12.5px;
+  margin: 2px 0 6px 16px;
+  padding-left: 8px;
+  border-left: 2px solid #e6e0f3;
+}
+
+/* Synonyms / Antonyms */
+.qd-synonyms,
+.qd-antonyms {
+  font-size: 12.5px;
+  color: #555;
+  margin: 6px 0 2px 0;
+}
+
+.qd-synonyms strong,
+.qd-antonyms strong {
+  color: #667eea;
+}
+
+/* Error */
+#qd-error {
+  text-align: center;
+  color: #c0392b;
+  padding: 16px 0;
+  font-size: 13px;
+}
+
+/* ─── Footer ─── */
+#qd-footer {
+  text-align: right;
+  padding: 4px 14px 6px;
+  font-size: 10px;
+  color: #bbb;
+  letter-spacing: 0.5px;
+  border-top: 1px solid #f0f0f0;
+}
+
+/* ─── Dark mode support via media query ─── */
+@media (prefers-color-scheme: dark) {
+  #qd-popup {
+    background: #1e1e2e;
+    border-color: #333;
+    color: #ddd;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  }
+
+  #qd-header {
+    border-bottom-color: #333;
+  }
+
+  #qd-body::-webkit-scrollbar-thumb {
+    background: #555;
+  }
+
+  .qd-pos {
+    color: #a29bfe;
+    border-bottom-color: #333;
+  }
+
+  .qd-def {
+    color: #ccc;
+  }
+
+  .qd-num {
+    color: #d4a6ff;
+  }
+
+  .qd-example {
+    color: #888;
+    border-left-color: #444;
+  }
+
+  .qd-synonyms,
+  .qd-antonyms {
+    color: #aaa;
+  }
+
+  #qd-error {
+    color: #e74c3c;
+  }
+
+  #qd-footer {
+    color: #555;
+    border-top-color: #333;
+  }
+}
